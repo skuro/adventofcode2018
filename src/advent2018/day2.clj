@@ -28,7 +28,6 @@
 
 (defn solve-one [path]
   (-> (read-input path)
-      (line-seq)
       (checksum)))
 
 ;;;;;;;;;;;;;;;; part 2 ;;;;;;;;;;;;;;;
@@ -72,7 +71,6 @@
        (subs box1 (inc diff-nth))))
 
 (defn solve-two [path]
-  (-> path
-      read-input
+  (-> (read-input path)
       find-boxes
       common-letters))
