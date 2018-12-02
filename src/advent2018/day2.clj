@@ -7,7 +7,7 @@
 
 ;;;;;;;;;;;;;;;; part 1 ;;;;;;;;;;;;;;;
 (defn id-scores
-  "Returns a vector of [<bool> <bool>] indicating whether there's a letter appearing twice and thrice,
+  "Returns a vector of [<1 or 0> <1 or 0>] indicating whether there's a letter appearing twice and thrice,
   respectively"
   [id]
   (let [freqs (into #{} (vals (frequencies id)))
