@@ -58,8 +58,8 @@
     (->> (filter (comp #{sleepy-guard} first) asleep-mins)
          (map second)
          (frequencies)
-         (sort-by second >)
-         (ffirst)
+         (apply max-key second)
+         (first)
          (vector sleepy-guard))))
 
 (defn solve-one [path]
@@ -72,7 +72,7 @@
 (defn most-asleep-in-minute [log]
   (let [sorted-log  (sort-by :time log)
         asleep-mins (all-asleep-minutes sorted-log)]
-    (ffirst (sort-by second > (frequencies asleep-mins)))))
+    (first (apply max-key second (frequencies asleep-mins)))))
 
 (defn solve-two [path]
   (let [log            (map parse-entry (read-input path))
