@@ -29,7 +29,7 @@
 ;;;;;;;;;;; part two ;;;;;;;;;;;
 (defn try-reaction [avoid-unit units]
   (let [avoid-pattern #{avoid-unit (first (str/upper-case avoid-unit))}]
-    (chain-reaction (filter (complement avoid-pattern) units))))
+    (chain-reaction (remove avoid-pattern units))))
 
 (defn try-reactions [units]
   (let [letters (keys (frequencies (str/lower-case (apply str units))))]
